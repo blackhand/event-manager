@@ -2,7 +2,7 @@
 {% block title %}Evento: {{ event.title }}{% endblock %}
 {% block css %}
 {{ block.super }}
-    <link rel="stylesheet" href="{{STATIC_URL}}css/location_picker.css" />
+<link rel="stylesheet" href="{{STATIC_URL}}css/location_picker.css" />
 {% endblock %}
 {% block content %}
 <h1>Evento: {{ event.title }}</h1>
@@ -10,6 +10,17 @@
     <li>Lugar: {{ event.map_tag }}</li>
     <li>Vacantes: {{ event.vacants }}</li>
 </ul>
+{% if user_suscribed %}
+    <p>Ya te encuentras registrado para asistir a este evento</p>
+    <p>hay muchos mas <a href="{% url event_list %}">eventos!</a></p>
+{% else %}
+    {% if event.vacants >= 1 %}
+        <p>Vamos hay vacantes <a href="{% url event_register event.pk %}">registrate!</a><p>
+        <p>hay muchos mas <a href="{% url event_list %}">eventos!</a></p>
+    {% else %}
+        <p>Ya no hay mas vacantes para este evento, pero hay muchos mas <a href="{% url event_list %}">eventos!</a></p>
+    {% endif %}
+{% endif %}
 {% endblock %}
 {% block js %}
 {{ block.super }}

@@ -44,5 +44,5 @@ class LocationField(models.CharField):
 
 
 if south_support:
-    add_introspection_rules([], ["^buildings\.fields\.LocationField"])
+    add_introspection_rules([], ["^events\.fields\.LocationField"])
 

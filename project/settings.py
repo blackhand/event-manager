@@ -107,3 +107,9 @@ LOGGING = {
         },
     }
 }
+
+# Custom settings
+
+# Google Maps key for default http://127.0.0.1:8000/
+GMAPS_API_KEY = 'ABQIAAAAjI5dgVn0vMYU8GWE2dQ1URTpH3CbXHjuCVmaTc5MkkU4wO1RRhT5voP6lpPrYBSsvUxIWKLFPL2SHg'
+

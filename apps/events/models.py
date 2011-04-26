@@ -2,13 +2,14 @@
 
 from django.db import models
 from datetime import date, datetime
+from fields import LocationField
 
 # Create your models here.
 
 class Event(models.Model):
     """ model representing an Event """
     title = models.CharField('Titulo', max_length=64)
-    place = models.CharField('Lugar', max_length=255, blank=True)
+    place = LocationField('Lugar', max_length=255, blank=True)
     start_at = models.DateTimeField('Fecha y Hora', blank=True, null=True)
     
     class Meta:

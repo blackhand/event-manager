@@ -6,6 +6,6 @@ from views import EventListView, EventDetailView
 
 urlpatterns = patterns('',
     url(r'^$', EventListView.as_view(), name='event_list'),
-    surl(r'^$', EventDetailView.as_view(), name='event_detail'),
+    surl(r'^event/<pk:s>/$', EventDetailView.as_view(), name='event_detail'),
 )
 

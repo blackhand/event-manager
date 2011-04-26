@@ -5,8 +5,8 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    #url(r'^events/', include('events.urls')),
     url(r'^admin/', include(admin.site.urls)),
+    url(r'', include('events.urls')),
 )
 
 if settings.DEBUG:

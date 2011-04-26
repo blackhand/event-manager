@@ -11,8 +11,10 @@ $(document).ready(function(){
         this.parentNode.insertBefore(map, this);
         $(this).css('display','none');
 
-        var lat = 55.950161;
-        var lng = -3.187408;
+        // TODO: fixed Lima coords, try to use settings for default map coords
+        var lat = -12.069203;
+        var lng = -77.077332;
+
         if (this.value.split(',').length == 2) {
             values = this.value.split(',');
             lat = values[0];

@@ -40,7 +40,7 @@ STATIC_URL = '/static/'
 ADMIN_MEDIA_PREFIX = '/static/admin/'
 
 STATICFILES_DIRS = (
-    # Don't forget to use absolute paths, not relative paths.
+    STATIC_ROOT,
 )
 
 STATICFILES_FINDERS = (

@@ -21,7 +21,7 @@ class Event(models.Model):
     place = LocationField('lugar', max_length=255)
     start_at = models.DateTimeField('fecha y hora')
     vacants = models.PositiveIntegerField('vacantes')
-    suscribed_users = models.ManyToManyField(User, verbose_name='usuarios registrados', related_name='events')
+    suscribed_users = models.ManyToManyField(User, verbose_name='usuarios registrados', related_name='events', blank=True, null=True)
 
     objects = EventManager()
     

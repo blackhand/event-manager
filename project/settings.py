@@ -82,7 +82,6 @@ INSTALLED_APPS = (
 
     # extras
     'south',
-    'django_extensions',
     'registration',
 
     # apps

@@ -2,14 +2,20 @@
 <html>
     <head>
         <title>{%block title %}Events{% endblock%}</title>
-        {% block stylesheets %}
+        {% block css %}
         {% endblock %}
     </head>
     <body>
-       {% block content %}
-       {% endblock %}
+        <div id="head">
+            {% block head %}
+            Bienvenido: {{ user.username }} <a href="{% url auth_logout %}">Logout</a>
+            {% endblock %}
+        </div>
+        {% block content %}
+        {% endblock %}
     </body>
-    {% block scripts %}
+    {% block js %}
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
     {% endblock %}
 </html>
 {% endspaceless %}

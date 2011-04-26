@@ -12,8 +12,9 @@ class Migration(SchemaMigration):
         db.create_table('events_event', (
             ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
             ('title', self.gf('django.db.models.fields.CharField')(max_length=64)),
-            ('place', self.gf('events.fields.LocationField')(max_length=255, blank=True)),
-            ('start_at', self.gf('django.db.models.fields.DateTimeField')(null=True, blank=True)),
+            ('place', self.gf('events.fields.LocationField')(max_length=255)),
+            ('start_at', self.gf('django.db.models.fields.DateTimeField')()),
+            ('vacants', self.gf('django.db.models.fields.PositiveIntegerField')()),
         ))
         db.send_create_signal('events', ['Event'])
 
@@ -28,9 +29,10 @@ class Migration(SchemaMigration):
         'events.event': {
             'Meta': {'object_name': 'Event'},
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'place': ('events.fields.LocationField', [], {'max_length': '255', 'blank': 'True'}),
-            'start_at': ('django.db.models.fields.DateTimeField', [], {'null': 'True', 'blank': 'True'}),
-            'title': ('django.db.models.fields.CharField', [], {'max_length': '64'})
+            'place': ('events.fields.LocationField', [], {'max_length': '255'}),
+            'start_at': ('django.db.models.fields.DateTimeField', [], {}),
+            'title': ('django.db.models.fields.CharField', [], {'max_length': '64'}),
+            'vacants': ('django.db.models.fields.PositiveIntegerField', [], {})
         }
     }
 

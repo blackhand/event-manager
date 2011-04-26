@@ -28,6 +28,8 @@ LANGUAGE_CODE = 'es-pe'
 
 SITE_ID = 1
 
+LOGIN_REDIRECT_URL = '/'
+
 USE_I18N = True
 USE_L10N = True
 
@@ -77,8 +79,12 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admin',
-    'django_extensions',
+
+    # extras
     'south',
+    'django_extensions',
+    'registration',
+
     # apps
     'events'
 )

@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from django.db import models
+from django.utils.safestring import mark_safe
 from datetime import date, datetime
 from fields import LocationField
 
@@ -13,10 +14,10 @@ class EventManager(models.Manager):
 
 class Event(models.Model):
     """ model representing an Event """
-    title = models.CharField('Titulo', max_length=64)
-    place = LocationField('Lugar', max_length=255)
-    start_at = models.DateTimeField('Fecha y Hora', blank=True, null=True)
-    vacants = models.PositiveIntegerField('Vacantes (0 o dejar en blanco para ilimitado)', blank=True, null=True)
+    title = models.CharField('titulo', max_length=64)
+    place = LocationField('lugar', max_length=255)
+    start_at = models.DateTimeField('fecha y hora')
+    vacants = models.PositiveIntegerField('vacantes')
 
     objects = EventManager()
     
@@ -30,4 +31,9 @@ class Event(models.Model):
     @models.permalink
     def get_absolute_url(self):
         return ('event_detail', str(self.pk))
+
+    def map_tag(self):
+        coords = self.place
+        tag = ('<input type="hidden" name="location" value="%s" class="location_picker read_only" maxlength="255" />') % coords
+        return mark_safe(tag)
 

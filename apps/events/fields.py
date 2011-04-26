@@ -20,7 +20,7 @@ class LocationPickerWidget(forms.TextInput):
             )
         }
         js = (
-            'http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js',
+            'http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js',
             'http://www.google.com/jsapi?key=' + settings.GMAPS_API_KEY,
             settings.STATIC_URL + 'js/jquery.location_picker.js',
         )

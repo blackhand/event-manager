@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}Reporte: Detalle de Evento: {{ event.title }}{% endblock %}
+{% block content %}
+<h1>Reporte: Detalle de Evento: {{ event.title }}</h1>
+
+<ul>
+    <li>Vacantes: {{ event.vacants }}</li>
+</ul>
+<p>Usuarios Registrados a este evento<p>
+{% with suscribed_users=event.suscribed_users.all %}
+<ul>
+    {% for user in suscribed_users %}
+        <li>{{ user.username }}</li>
+    {% endfor %}
+</ul>
+{% endwith %}
+<a href="{% url report_list %}">Volver al Listado de reportes</a>
+{% endblock %}
+
+

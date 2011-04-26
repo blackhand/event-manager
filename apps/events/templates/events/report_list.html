@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Reporte: Eventos{% endblock %}
+{% block head %}
+{{ block.super }}
+<p>Regresar a <a href="{% url event_list %}">Eventos!</a>
+{% endblock %}
+{% block content %}
+<h1>Reporte: Eventos</h1>
+<ul>
+    {% for event in event_list %}
+    <li><a href="{% url report_detail event.pk %}">{{ event }}</a></li>
+    {% endfor %}
+</ul>
+{% endblock %}

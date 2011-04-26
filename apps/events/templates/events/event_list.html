@@ -1,5 +1,11 @@
 {% extends "base.html" %}
 {% block title %}Eventos :){% endblock %}
+{% block head %}
+{{ block.super }}
+{% if can_view_report %}
+    <p><a href="{% url report_list %}">Ir a Reportes</a></p>
+{% endif %}
+{% endblock %}
 {% block content %}
 <h1>Eventos</h1>
 <ul>
